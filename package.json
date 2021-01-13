@@ -1,5 +1,5 @@
 {
-  "name": "rollup-template",
+  "name": "@johnnywang/vue-localstore",
   "version": "0.0.1",
   "description": "A tiny plugin for vue localstorage with version control & prefixed keys",
   "author": "johnnywang",
