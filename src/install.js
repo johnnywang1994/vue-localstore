@@ -11,7 +11,7 @@ export function install(Vue) {
 
   const registerInstance = (vm, callVal) => {
     let i = vm.$options._parentVnode;
-    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+    if (isDef(i) && isDef(i = i.data)) {
       i(vm, callVal);
     }
   };

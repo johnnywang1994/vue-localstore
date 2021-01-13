@@ -21,7 +21,7 @@
     var registerInstance = function registerInstance(vm, callVal) {
       var i = vm.$options._parentVnode;
 
-      if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+      if (isDef(i) && isDef(i = i.data)) {
         i(vm, callVal);
       }
     };
@@ -202,7 +202,7 @@
   initEventData(VueLocalStore);
 
   VueLocalStore.install = install;
-  VueLocalStore.version = '0.0.3';
+  VueLocalStore.version = '0.0.4';
 
   if (inBrowser && window.Vue) {
     window.Vue.use(VueLocalStore);
