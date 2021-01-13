@@ -5,7 +5,7 @@ import {
 } from './utils';
 
 VueLocalStore.install = install;
-VueLocalStore.version = '0.0.1';
+VueLocalStore.version = '0.0.2';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueLocalStore);
