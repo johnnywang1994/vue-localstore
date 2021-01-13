@@ -7,7 +7,7 @@ vue localStorage plugin with `prefix`, `unique id` injectable for vue2.x which c
 VueLocalStore is an umd module, you can easily use by cdn or es6 module
 
 ```bash
-$ npm install vue-localstore
+$ npm install @johnnywang/vue-localstore
 ```
 
 
@@ -20,7 +20,7 @@ Same as vue-router, create localStore instance
 ```js
 // localStore.js
 import Vue from 'vue';
-import VueLocalStore from 'vue-localstore';
+import VueLocalStore from '@johnnywang/vue-localstore';
 
 Vue.use(VueLocalStore);
 
