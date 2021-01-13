@@ -202,7 +202,7 @@
   initEventData(VueLocalStore);
 
   VueLocalStore.install = install;
-  VueLocalStore.version = '0.0.1';
+  VueLocalStore.version = '0.0.3';
 
   if (inBrowser && window.Vue) {
     window.Vue.use(VueLocalStore);
