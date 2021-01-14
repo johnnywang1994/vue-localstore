@@ -9,13 +9,6 @@ export function install(Vue) {
 
   const isDef = (v) => v !== undefined;
 
-  const registerInstance = (vm, callVal) => {
-    let i = vm.$options._parentVnode;
-    if (isDef(i) && isDef(i = i.data)) {
-      i(vm, callVal);
-    }
-  };
-
   Vue.mixin({
     beforeCreate() {
       if (isDef(this.$options.localStore)) {
@@ -25,10 +18,6 @@ export function install(Vue) {
       } else {
         this._localStoreRoot = (this.$parent && this.$parent._localStoreRoot) || this;
       }
-      registerInstance(this, this);
-    },
-    destroyed() {
-      registerInstance(this);
     },
   });
 

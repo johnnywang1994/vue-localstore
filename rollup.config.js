@@ -11,17 +11,15 @@ const config = {
     name: 'VueLocalStore',
     file: `dist/vue-localstore${isProd ? '.min' : ''}.js`,
     format: 'umd',
+    exports: 'default',
     compact: isProd
   },
   plugins: [
     babel({ babelHelpers: 'bundled' }),
+    (isProd && terser()),
     nodeResolve(),
     commonjs()
   ],
 };
-
-if (isProd) {
-  config.plugins.push(terser());
-}
 
 export default config;

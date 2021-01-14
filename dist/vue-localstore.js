@@ -18,14 +18,6 @@
       return v !== undefined;
     };
 
-    var registerInstance = function registerInstance(vm, callVal) {
-      var i = vm.$options._parentVnode;
-
-      if (isDef(i) && isDef(i = i.data)) {
-        i(vm, callVal);
-      }
-    };
-
     Vue.mixin({
       beforeCreate: function beforeCreate() {
         if (isDef(this.$options.localStore)) {
@@ -36,11 +28,6 @@
         } else {
           this._localStoreRoot = this.$parent && this.$parent._localStoreRoot || this;
         }
-
-        registerInstance(this, this);
-      },
-      destroyed: function destroyed() {
-        registerInstance(this);
       }
     });
     Object.defineProperty(Vue.prototype, '$localStore', {
@@ -202,7 +189,7 @@
   initEventData(VueLocalStore);
 
   VueLocalStore.install = install;
-  VueLocalStore.version = '0.0.4';
+  VueLocalStore.version = '0.0.5';
 
   if (inBrowser && window.Vue) {
     window.Vue.use(VueLocalStore);
