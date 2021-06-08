@@ -1,6 +1,6 @@
 {
   "name": "@johnnywang/vue-localstore",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A tiny plugin for vue localstorage with version control & prefixed keys",
   "author": "johnnywang",
   "main": "./dist/vue-localstore.min.js",
