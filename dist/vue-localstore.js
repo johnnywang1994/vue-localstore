@@ -83,6 +83,8 @@
 
         _this.setRoot(versionNameKey, newVersionName);
 
+        _this.syncRootData();
+
         _this.refreshEventData();
       };
 
@@ -135,6 +137,25 @@
       this.app.$set(this.__data__, key, null);
       delete localStorage[key];
       delete this.__data__[key];
+    };
+
+    VueLocalStore.prototype.syncRootData = function syncRootData() {
+      var _this = this;
+
+      var keyList = Object.keys(localStorage);
+      var eventDataKey = this.options.eventDataKey;
+      keyList.forEach(function (key) {
+        if (key === eventDataKey) return;
+        var value;
+
+        try {
+          value = JSON.parse(localStorage[key]);
+        } catch (_unused2) {
+          value = localStorage[key];
+        } finally {
+          _this.app.$set(_this.__data__, key, value);
+        }
+      });
     };
   }
 

@@ -29,6 +29,7 @@ export function initStore(VueLocalStore) {
         }
       }
       this.setRoot(versionNameKey, newVersionName);
+      this.syncRootData();
       this.refreshEventData();
     }
     setupLocalStore();

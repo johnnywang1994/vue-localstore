@@ -39,4 +39,20 @@ export function initRoot(VueLocalStore) {
     delete localStorage[key];
     delete this.__data__[key];
   }
+
+  VueLocalStore.prototype.syncRootData = function syncRootData() {
+    const keyList = Object.keys(localStorage);
+    const { eventDataKey } = this.options;
+    keyList.forEach((key) => {
+      if (key === eventDataKey) return;
+      let value;
+      try {
+        value = JSON.parse(localStorage[key]);
+      } catch {
+        value = localStorage[key];
+      } finally {
+        this.app.$set(this.__data__, key, value);
+      }
+    })
+  }
 }
